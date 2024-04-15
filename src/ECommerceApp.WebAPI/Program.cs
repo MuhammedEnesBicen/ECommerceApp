@@ -1,5 +1,7 @@
+using ECommerceApp.Application;
 using ECommerceApp.Domain.Entities;
-using ECommerceApp.Infrastructure.Services;
+using ECommerceApp.Persistence;
+using ECommerceApp.Persistence.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDb"));
 
+builder.Services.AddApplicationServices();
+builder.Services.AddPersistenceServices();
 builder.Services.AddSingleton<CategoryRepository>();
+// TODO: Apply CQRS patter for the Category feature
 
 var app = builder.Build();
 

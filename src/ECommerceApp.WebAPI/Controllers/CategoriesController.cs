@@ -1,5 +1,5 @@
 ﻿using ECommerceApp.Domain.Entities;
-using ECommerceApp.Infrastructure.Services;
+using ECommerceApp.Persistence.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceApp.WebAPI.Controllers
