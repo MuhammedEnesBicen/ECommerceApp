@@ -1,13 +1,12 @@
-﻿using ECommerceApp.Domain.Entities;
-using ECommerceApp.Persistence.Repositories;
+﻿using ECommerceApp.Application.Services.Repositories;
+using ECommerceApp.Domain.Entities;
 using Microsoft.Extensions.Options;
 
-namespace ECommerceApp.Persistence.Services
+namespace ECommerceApp.Persistence.Repositories;
+
+public class CategoryRepository : GenericRepositoryAsync<Category>, ICategoryRepository
 {
-    public class CategoryRepository : GenericRepositoryAsync<Category>
+    public CategoryRepository(IOptions<MongoDbSettings> mongoDbSettings) : base(mongoDbSettings)
     {
-        public CategoryRepository(IOptions<MongoDbSettings> mongoDbSettings) : base(mongoDbSettings)
-        {
-        }
     }
 }
